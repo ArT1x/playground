@@ -1,8 +1,11 @@
 let bubbles = [];
+let canvas;
 
 function setup() {
 
-  createCanvas(900, 400);
+  canvas = createCanvas(windowWidth, windowHeight);
+  canvas.position(0, 0);
+  canvas.style('z-index', '-1');
 
   //Slider RED
   textr = createP("red");
@@ -23,8 +26,10 @@ function setup() {
   sliderb.style('background-color', 'blue');
 
   //slider SIZE
-  createP("size");
+  texts = createP("size");
+  texts.style('color', 'white');
   sliders = createSlider(1, 50, 15, 5);
+  sliders.style('background-color', 'white');
 
 }
 
