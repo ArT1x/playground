@@ -28,8 +28,14 @@ function setup() {
   //slider SIZE
   texts = createP("size");
   texts.style('color', 'white');
-  sliders = createSlider(1, 50, 15, 5);
+  sliders = createSlider(10, 100, 40, 5);
   sliders.style('background-color', 'white');
+
+  //slider Transparenz
+  textt = createP("transparency");
+  textt.style('color', 'white');
+  slidert = createSlider(0, 255, 100, 10);
+  slidert.style('background-color', 'white');
 
 }
 
@@ -39,7 +45,7 @@ function mouseDragged() {
   let bsize = sliders.value();
   let r = random(bsize * 0.5, bsize * 2);
 
-  let lifetime = 200;
+  let transp = slidert.value();
   //colors
   //let colr = random(100, 255)
   let colr = sliderr.value();
@@ -47,8 +53,7 @@ function mouseDragged() {
   let colg = sliderg.value();
   //let colb = random(100, 255);
   let colb = sliderb.value();
-
-  bubbles.push(new Bubble(mouseX, mouseY, r, colr, colg, colb, lifetime));
+  bubbles.push(new Bubble(mouseX, mouseY, r, colr, colg, colb, transp));
 }
 
 function draw() {

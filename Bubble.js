@@ -1,5 +1,5 @@
 class Bubble {
-  constructor(x, y, r, colr, colg, colb, lifetime) {
+  constructor(x, y, r, colr, colg, colb, transp) {
     this.x = x;
     this.y = y;
     //radius
@@ -9,23 +9,25 @@ class Bubble {
     this.colg = colg;
     this.colb = colb;
 
-    this.lifetime = lifetime;
+    this.transp = transp;
   }
   update() {
-    this.x = this.x + random(-5, 5);
-    this.y = this.y + random(-5, 5);
+    this.x = this.x + randomGaussian(0, 4);
+    this.y = this.y + randomGaussian(0, 4);
+
   }
   show() {
-    stroke(this.colr, this.colg, this.colb, this.lifetime);
+    stroke(this.colr, this.colg, this.colb, this.transp);
     strokeWeight(4);
     //noFill();
-    fill(this.colr, this.colg, this.colb, this.lifetime);
-    ellipse(this.x, this.y, this.r * 2);
+    fill(this.colr, this.colg, this.colb, this.transp);
+    ellipse(this.x, this.y, this.r );
     this.y = this.y + -4;
-    this.lifetime = this.lifetime - 7;
+    //this.transp = this.transp - 2;
+    this.r = this.r + -1;
   }
   isFinished() {
-    if (this.lifetime < 0) {
+    if (this.r <= 0) {
       return true;
     } else {
       return false;
