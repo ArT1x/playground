@@ -10,19 +10,19 @@ function setup() {
   //Slider RED
   textr = createP("red");
   textr.style('color', 'red');
-  sliderr = createSlider(0, 255, 100, 10);
+  sliderr = createSlider(0, 255, 200, 10);
   sliderr.style('background-color', 'red');
 
   //Slider Green
   textg = createP("green");
   textg.style('color', 'green');
-  sliderg = createSlider(0, 255, 100, 10);
+  sliderg = createSlider(0, 255, 70, 10);
   sliderg.style('background-color', 'green');
 
   //Slider BLUE
   textb = createP("blue");
   textb.style('color', 'blue');
-  sliderb = createSlider(0, 255, 100, 10);
+  sliderb = createSlider(0, 255, 150, 10);
   sliderb.style('background-color', 'blue');
 
   //slider SIZE
@@ -34,8 +34,20 @@ function setup() {
   //slider Transparenz
   textt = createP("transparency");
   textt.style('color', 'white');
-  slidert = createSlider(0, 255, 100, 10);
+  slidert = createSlider(0, 255, 200, 10);
   slidert.style('background-color', 'white');
+
+  //slider x
+  textx = createP("x");
+  textx.style('color', 'white');
+  sliderx = createSlider(-25, 25, 0, 1);
+  sliderx.style('background-color', 'white');
+
+  //slider y
+  texty = createP("y");
+  texty.style('color', 'white');
+  slidery = createSlider(-25, 25, 0, 1);
+  slidery.style('background-color', 'white');
 
 }
 
@@ -53,7 +65,11 @@ function mouseDragged() {
   let colg = sliderg.value();
   //let colb = random(100, 255);
   let colb = sliderb.value();
-  bubbles.push(new Bubble(mouseX, mouseY, r, colr, colg, colb, transp));
+
+  let driftx = sliderx.value();
+  let drifty = slidery.value();
+
+  bubbles.push(new Bubble(mouseX, mouseY, driftx, drifty, r, colr, colg, colb, transp));
 }
 
 function draw() {
