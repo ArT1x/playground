@@ -19,9 +19,9 @@ class Bubble {
   update() {
     this.x = this.x + randomGaussian(0, 4);
     this.y = this.y + randomGaussian(0, 4);
-//this.x = this.x + -4;
-    this.x = this.x + -this.driftx;
-    this.y = this.y + -this.drifty;
+    //this.x = this.x + -4;
+    this.x = this.x + this.driftx;
+    this.y = this.y + this.drifty;
 
   }
   show() {
